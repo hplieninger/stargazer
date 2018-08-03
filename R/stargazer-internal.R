@@ -6489,7 +6489,14 @@ function(libname, pkgname) {
     .format.max.extra.digits <- 2
     
     ## threshholds for the stars
-    .format.stars <- "*"
+    # .format.stars <- "*"
+    if (!is.null(star.char)) { 
+        .format.stars <- star.char
+    } else if (type == "html") {
+        .format.stars <- "&#42;"
+    } else {
+        .format.stars <- "*"
+    }
     .format.cutoffs <- c(0.1, 0.05, 0.01)
     
     .format.std.errors.left <- "("
@@ -6823,9 +6830,9 @@ function(libname, pkgname) {
         .format.cutoffs <- star.cutoffs
       }
       
-      if (!is.null(star.char)) { 
-        .format.stars <- star.char
-      }
+      # if (!is.null(star.char)) { 
+      #   .format.stars <- star.char
+      # }
       
       for (i in 1:length(.format.cutoffs)) {
         if (is.na(.format.stars[i])) {
