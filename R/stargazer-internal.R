@@ -6580,7 +6580,8 @@ function(libname, pkgname) {
     .format.intercept.bottom <- TRUE
     .format.note <- "\\textit{Note:} "
     .format.note.alignment <- "r"
-    .format.note.content <- c("$^{*}$p$<$[0.*]; $^{**}$p$<$[0.**]; $^{***}$p$<$[0.***]")
+    # .format.note.content <- c("$^{*}$p$<$[0.*]; $^{**}$p$<$[0.**]; $^{***}$p$<$[0.***]")
+    .format.note.content <- sprintf("$^{%1$s}$p$<$[0.*]; $^{%1$s%1$s}$p$<$[0.**]; $^{%1$s%1$s%1$s}$p$<$[0.***]", .format.stars)
     
     #### summary statistic table
     .format.s.statistics.names <- cbind(c("n","N"), c("nmiss","missing"), c("mean","Mean"), c("sd","St. Dev."), c("median","Median"), c("min","Min"), c("max","Max"), c("mad","Median Abs. Dev."), c("p","Pctl(!)"))
